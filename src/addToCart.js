@@ -110,13 +110,13 @@ function addToCart() {
                             }
 
                             div.dataset.quantity = datasetQuantity
-                            let price = div.dataset.price
-                            let priceTotal = div.dataset.priceTotal = price * datasetQuantity
+                            let datasetPrice = div.dataset.price
+                            let priceTotal = div.dataset.priceTotal = datasetPrice * datasetQuantity
                             let detailsInCart = div.querySelector('.product__in__cart__details')
                             let $quantityInCart = detailsInCart.querySelector('.product__in__cart__details__quantity')
                             let $priceTotalInCart = detailsInCart.querySelector('.product__in__cart__details__priceTotal')
                             $quantityInCart.textContent = `${datasetQuantity}x`
-                            $priceTotalInCart.textContent = `$${(priceTotal - price).toFixed(2)}`
+                            $priceTotalInCart.textContent = `$${(priceTotal).toFixed(2)}`
                         }
                     })
                     calculateTotalQuantity()
@@ -134,14 +134,13 @@ function addToCart() {
                     productInCart.forEach((div) => {
                         if(div.dataset.name == datasetName) {
                             div.dataset.quantity = datasetQuantity
-                            let price = div.dataset.price
-                            let priceTotal = div.dataset.priceTotal = price * datasetQuantity
+                            let datasetPrice = div.dataset.price
+                            let priceTotal = div.dataset.priceTotal = datasetPrice * datasetQuantity
                             let detailsInCart = div.querySelector('.product__in__cart__details')
                             let $quantityInCart = detailsInCart.querySelector('.product__in__cart__details__quantity')
-                            let datasetPrice = div.dataset.price
                             let $priceTotalInCart = detailsInCart.querySelector('.product__in__cart__details__priceTotal')
                             $quantityInCart.textContent = `${datasetQuantity}x`
-                            $priceTotalInCart.textContent = `$${(datasetQuantity * datasetPrice).toFixed(2)}`
+                            $priceTotalInCart.textContent = `$${(priceTotal).toFixed(2)}`
                         }
                     })
                     calculateTotalQuantity()
