@@ -224,7 +224,7 @@ body {
     display: grid;
     place-content: center;
     grid-template-columns: repeat(3, minmax(auto, 252px));
-    gap: 1.5rem;
+    gap: 1.6rem;
 }
 
 .desserts__cart {
@@ -253,12 +253,13 @@ body {
 }
 
 .desserts__cart__empty__cart__img {
-    margin-top: 2.813em;
+    margin: 2.5em 0rem .563rem;
 }
 
 .desserts__cart__empty__cart__info {
     color: var(--Rose-500);
     font-family: var(--FontSemiBold);
+    font-size: var(--Font13px);
 }
 
 #desserts--cart--with--items {
