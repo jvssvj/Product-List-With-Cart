@@ -209,7 +209,7 @@ body {
 .product__infos__name {
     font-size: var(--Font16px);
     color: var(--Rose-900);
-    margin: .1rem 0em;
+    margin: .2rem 0em;
 }
 
 .product__infos__price {
