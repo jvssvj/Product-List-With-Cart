@@ -99,7 +99,7 @@ body {
 .desserts__products__t {
     color: var(--Rose-900);
     font-family: var(--FontBold);
-    margin-bottom: 2.5rem;
+    margin-bottom: 2.6rem;
     font-size: var(--Font40px);
 }
 
@@ -224,7 +224,7 @@ body {
     display: grid;
     place-content: center;
     grid-template-columns: repeat(3, minmax(auto, 252px));
-    gap: 1.6rem;
+    gap: 1.7rem;
 }
 
 .desserts__cart {
