@@ -278,7 +278,7 @@ body {
     position: fixed;
     bottom: 0;
     z-index: 6;
-    overflow: scroll;
+    overflow-y: auto;
     height: 100%;
 }
 
