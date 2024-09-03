@@ -61,7 +61,7 @@ body {
     min-height: 100vh;
     font-size: var(--Font16px);
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     background-color: var(--Rose-50);
     width: 100%;
@@ -99,7 +99,7 @@ body {
 .desserts__products__t {
     color: var(--Rose-900);
     font-family: var(--FontBold);
-    margin-bottom: 2.6rem;
+    margin-bottom: 2.5rem;
     font-size: var(--Font40px);
 }
 
@@ -209,7 +209,7 @@ body {
 .product__infos__name {
     font-size: var(--Font16px);
     color: var(--Rose-900);
-    margin: .2rem 0em;
+    margin: .1rem 0em;
 }
 
 .product__infos__price {
@@ -224,7 +224,7 @@ body {
     display: grid;
     place-content: center;
     grid-template-columns: repeat(3, minmax(auto, 252px));
-    gap: 1.7rem;
+    gap: 1.6rem;
 }
 
 .desserts__cart {
@@ -275,9 +275,11 @@ body {
     background-color: var(--White);
     border-radius: 1rem;
     padding: 2.625rem;
-    position: absolute;
-    top: 10em;
+    position: fixed;
+    bottom: 0;
     z-index: 6;
+    overflow: scroll;
+    height: 100%;
 }
 
 .order__confirmed__infos {
@@ -450,7 +452,7 @@ body {
 
 #confirm--order, 
 #start--new--order {
-    height: 53px;
+    min-height: 53px;
     background-color: var(--Red);
     color: var(--Rose-50);
     font-family: var(--FontSemiBold);
