@@ -349,6 +349,7 @@ body {
 
 .product__in__order__infos__img {
     width: 48px;
+    border-radius: .3rem;
 }
 
 .product__in__cart__infos__name,
