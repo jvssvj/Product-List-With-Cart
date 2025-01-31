@@ -35,7 +35,7 @@
 |||
 | :----- | :----- |
 | Solution URL: | [Frontend Mentor - Product list with cart](https://www.frontendmentor.io/solutions/product-list-with-cart-vG2KKtoU2Y) |
-| Live Site URL: | <a target href="https://product-list-with-cart-85rf6xxyw-joao-vitors-projects-3fcf59cf.vercel.app/" target="_blank">Product list with cart</a>
+| Live Site URL: | <a target href="https://jvssvj.github.io/Product-List-With-Cart/index.html" target="_blank">Product list with cart</a>
 |||
 
 <br>
