@@ -31,24 +31,28 @@ function calculateTotalQuantity() {
     }
 }
 
-function removeByIcon($quantityPickerContainer: HTMLDivElement, cartQuantity: number) {
+function removeByIcon(productInfos: HTMLDivElement, $quantityPickerContainer:HTMLDivElement ,cartQuantity: number) {
     const productInCart = document.querySelectorAll('.product__in__cart__infos') as NodeListOf<HTMLDivElement>
     
     productInCart.forEach((product) => {
 
         const productInCartContainer = product.closest('.product__in__cart__overview') as HTMLDivElement | null
+        const productInCartInfos = productInCartContainer.querySelector('.product__in__cart__infos') as HTMLDivElement | null
         const iconRemove = productInCartContainer.querySelector('.product__in__cart__btnRemove') as HTMLButtonElement
         if(!productInCartContainer && !iconRemove) return
 
         iconRemove.addEventListener('click', () => {
-            $quantityPickerContainer.style.display = 'none'
-            const cart = document.querySelector('#product--in--cart')
-            if(!cart) return
-            cart.removeChild(productInCartContainer)
-            cartEmpty(cartQuantity)
-            calculateTotalQuantity()
-            calculateTotalPrice()
+            if(productInfos.dataset.name === productInCartInfos.dataset.name) {
+                $quantityPickerContainer.style.display = 'none'
+                const cart = document.querySelector('#product--in--cart')
+                if(!cart) return
+                cart.removeChild(productInCartContainer)
+                cartEmpty(cartQuantity)
+                calculateTotalQuantity()
+                calculateTotalPrice()
+            }
         })
+
     })
 }
 
@@ -130,7 +134,7 @@ export function addToCart() {
 
             showOrHideCart('show')
 
-            const productContainer = (event.currentTarget as HTMLElement).closest('.product')
+            const productContainer = (event.currentTarget as HTMLDivElement).closest('.product')
             const productInfosContainer = productContainer.querySelector<HTMLDivElement>('.product__infos')
             const $quantityPickerContainer = productContainer.querySelector<HTMLDivElement>('.product__btns__decrement__increment')
             const productName = productInfosContainer.dataset.name || ''
@@ -161,7 +165,7 @@ export function addToCart() {
             cartEmpty(cartQuantity)
             calculateTotalPrice()
             calculateTotalQuantity()
-            removeByIcon($quantityPickerContainer, cartQuantity)
+            removeByIcon(productInfosContainer, $quantityPickerContainer, cartQuantity)
             $newBtnDecrement.addEventListener('click', (event) => {
                 quantityPicker(event, '-')
             })

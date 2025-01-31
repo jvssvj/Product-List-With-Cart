@@ -25,22 +25,25 @@ function calculateTotalQuantity() {
         yourCartQuantity.textContent = `Your Cart (${totalQuantity})`;
     }
 }
-function removeByIcon($quantityPickerContainer, cartQuantity) {
+function removeByIcon(productInfos, $quantityPickerContainer, cartQuantity) {
     const productInCart = document.querySelectorAll('.product__in__cart__infos');
     productInCart.forEach((product) => {
         const productInCartContainer = product.closest('.product__in__cart__overview');
+        const productInCartInfos = productInCartContainer.querySelector('.product__in__cart__infos');
         const iconRemove = productInCartContainer.querySelector('.product__in__cart__btnRemove');
         if (!productInCartContainer && !iconRemove)
             return;
         iconRemove.addEventListener('click', () => {
-            $quantityPickerContainer.style.display = 'none';
-            const cart = document.querySelector('#product--in--cart');
-            if (!cart)
-                return;
-            cart.removeChild(productInCartContainer);
-            cartEmpty(cartQuantity);
-            calculateTotalQuantity();
-            calculateTotalPrice();
+            if (productInfos.dataset.name === productInCartInfos.dataset.name) {
+                $quantityPickerContainer.style.display = 'none';
+                const cart = document.querySelector('#product--in--cart');
+                if (!cart)
+                    return;
+                cart.removeChild(productInCartContainer);
+                cartEmpty(cartQuantity);
+                calculateTotalQuantity();
+                calculateTotalPrice();
+            }
         });
     });
 }
@@ -140,7 +143,7 @@ export function addToCart() {
             cartEmpty(cartQuantity);
             calculateTotalPrice();
             calculateTotalQuantity();
-            removeByIcon($quantityPickerContainer, cartQuantity);
+            removeByIcon(productInfosContainer, $quantityPickerContainer, cartQuantity);
             $newBtnDecrement.addEventListener('click', (event) => {
                 quantityPicker(event, '-');
             });
